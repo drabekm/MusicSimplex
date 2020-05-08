@@ -33,7 +33,7 @@ namespace Music_Simplex
             {
                 MessageBox.Show("Media Failed!!");
             };
-            MyUserControl.myEvent += MyEventHandler;
+            //MyUserControl.myEvent += MyEventHandler;
             
             //player.Open(new Uri(@"C:\programovani\MusicSimplex\Music Simplex\bin\Debug\Romashki.mp3", UriKind.Absolute));
           /*  player.Open(new Uri("testmusic.mp3", UriKind.Relative));

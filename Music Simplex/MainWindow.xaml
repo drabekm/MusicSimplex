@@ -1,5 +1,6 @@
 ﻿<Window x:Class="Music_Simplex.MainWindow"
-        xmlns:uc="clr-namespace:Music_Simplex.User_Controls"
+        
+        xmlns:uc="clr-namespace:Music_Simplex.CustomControls"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,14 +10,15 @@
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="325*"/>
-            <RowDefinition Height="96*"/>
+            <RowDefinition Height="340"/> 
+            <RowDefinition Height="*"/> <!-- 110 px -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="183*"/>
-            <ColumnDefinition Width="611*"/>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/> <!-- 560 px -->
         </Grid.ColumnDefinitions>
-        <uc:UserControl1 Width="auto" Height="auto" x:Name="MyUserControl"/>
+        
+        <uc:MenuButtons Grid.Row="0" Grid.Column="0"/>
     </Grid>
-    
+
 </Window>

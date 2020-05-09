@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\matej\source\repos\MusicSimplex\Music Simplex\obj\Debug\
+C:\programovani\MusicSimplex\Music Simplex\obj\Debug\
 Music_Simplex
 none
 false
 DEBUG;TRACE
-C:\Users\matej\source\repos\MusicSimplex\Music Simplex\App.xaml
-11151548125
+C:\programovani\MusicSimplex\Music Simplex\App.xaml
+4-1114013187
 
-6-1501864840
-13-1505183044
-MainWindow.xaml;
+10308092645
+162010817188
+CustomControls\AutoPlayer.xaml;CustomControls\MenuButtons.xaml;CustomControls\TimeBar.xaml;MainWindow.xaml;
 
-True
+False
 

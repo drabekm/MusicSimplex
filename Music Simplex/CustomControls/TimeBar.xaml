@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Music_Simplex.CustomControls.TimeBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Music_Simplex.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid >
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <Slider Name="sldTime" Grid.RowSpan="2" Thumb.DragStarted="SldTimerDragStarted" Thumb.DragCompleted="SldTimeDragCompleted" TickFrequency="0" ValueChanged="SldTime_ValueChanged"   />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Name="btnMoveLeft" Content="&lt;" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnMoveLeft_Click" BorderThickness="0" />
+            <Button Name="btnPause" Content="Pause" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPause_Click" BorderThickness="0" />
+            <Button Name="btnPlay" Content="Play" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPlay_Click" BorderThickness="0" />
+            <Button Name="btnMoveRight" Content=">" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,0,0" Click="BtnMoveRight_Click" BorderThickness="0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

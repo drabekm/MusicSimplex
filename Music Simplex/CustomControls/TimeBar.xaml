@@ -17,13 +17,13 @@
         <Grid.ColumnDefinitions>
 
         </Grid.ColumnDefinitions>
-        <Slider Name="sldTime" Grid.RowSpan="2" Thumb.DragCompleted="SldTimeDragCompleted" TickFrequency="0" ValueChanged="SldTime_ValueChanged"   />
+        <Slider Name="sldTime" Grid.RowSpan="2" Thumb.DragStarted="SldTimerDragStarted" Thumb.DragCompleted="SldTimeDragCompleted" TickFrequency="0" ValueChanged="SldTime_ValueChanged"   />
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Name="btnMoveLeft" Content="&lt;" Width="50" Margin="0,0,10,0" Click="BtnMoveLeft_Click" />
-            <Button Name="btnPause" Content="Pause" Width="50" Margin="0,0,10,0" Click="BtnPause_Click" />
-            <Button Name="btnPlay" Content="Play" Width="50" Margin="0,0,10,0" Click="BtnPlay_Click" />
-            <Button Name="btnMoveRight" Content=">" Width="50" Margin="0,0,0,0" Click="BtnMoveRight_Click"/>
+            <Button Name="btnMoveLeft" Content="&lt;" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnMoveLeft_Click" BorderThickness="0" />
+            <Button Name="btnPause" Content="Pause" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPause_Click" BorderThickness="0" />
+            <Button Name="btnPlay" Content="Play" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPlay_Click" BorderThickness="0" />
+            <Button Name="btnMoveRight" Content=">" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,0,0" Click="BtnMoveRight_Click" BorderThickness="0" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -17,9 +17,29 @@
             <RowDefinition Height="30"/> <!---->
         </Grid.RowDefinitions>
 
-        <Button Name="btnAutoPlayer" Grid.Row="1" Content="Auto přehrávač" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnAutoPlayer_Click"/>
-        <Button Name="btnManualPlayer" Grid.Row="3" Content="Manuální výběr" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnManualPlayer_Click"/>
-        <Button Name="btnAbout" Grid.Row="5" Content="O aplikaci" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnAbout_Click"/>
+        <Button Name="btnAutoPlayer" Grid.Row="1" Content="Auto přehrávač" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" FontFamily="Verdana"  FontSize="18" Click="BtnAutoPlayer_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="LightGreen" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Name="btnManualPlayer" Grid.Row="3" Content="Manuální výběr" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnManualPlayer_Click"/>
+        <Button Name="btnAbout" Grid.Row="5" Content="O aplikaci" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnAbout_Click"/>
 
     </Grid>
 </UserControl>

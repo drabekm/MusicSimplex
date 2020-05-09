@@ -27,12 +27,46 @@ namespace Music_Simplex.CustomControls
         public event EventHandler btnPauseClicked;
         public event EventHandler sldTimeMouseDragged;
 
+        public event EventHandler timerRequestPositionUpdate;
+
         public double CurrentTime  { get; private set; }
+        private bool acceptRuntimeSliderUpdate = true;
+
+        System.Windows.Forms.Timer updateSliderTimer = new System.Windows.Forms.Timer();
 
         public TimeBar()
         {
             InitializeComponent();
+
+            
         }
+
+        /// <summary>
+        /// WARNING! This method must be run from somewhere else than the classes constructor.
+        /// if you leave it in the TimeBar() method it starts endleslly creating error messageboxes
+        /// when you open xaml designer. Best bet is to just run this from the MainWindow.cs 
+        /// 
+        /// Shits weird man
+        /// </summary>
+        public void InitializeTimers()
+        {
+            updateSliderTimer.Interval = 500;
+            updateSliderTimer.Tick += SendTimerRequestPositionUpdate;
+            updateSliderTimer.Start();
+        }
+
+        /// <summary>
+        /// Creates event that is handled by MainWindow. Which then returns
+        /// musicPlayers current songs location. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SendTimerRequestPositionUpdate(object sender, EventArgs e)
+        {            
+            timerRequestPositionUpdate(this, new EventArgs());
+        }
+
+        #region "Control Events"
 
         private void BtnMoveLeft_Click(object sender, RoutedEventArgs e)
         {
@@ -54,9 +88,17 @@ namespace Music_Simplex.CustomControls
             btnPlayClicked(this, e);
         }
 
+        private void SldTimerDragStarted(object sender, DragStartedEventArgs e)
+        {
+            updateSliderTimer.Stop();
+            acceptRuntimeSliderUpdate = false;
+        }
+
         private void SldTimeDragCompleted(object sender, DragCompletedEventArgs e)
         {
             this.CurrentTime = Math.Round(((Slider)sender).Value);
+            updateSliderTimer.Start();
+            acceptRuntimeSliderUpdate = true;
             sldTimeMouseDragged(this, e);
         }
 
@@ -64,6 +106,8 @@ namespace Music_Simplex.CustomControls
         {
             this.CurrentTime = Math.Round(((Slider)sender).Value);
         }
+
+        #endregion
 
         private double GetRoundedValueFromSlider(Slider slider)
         {
@@ -73,6 +117,14 @@ namespace Music_Simplex.CustomControls
         public void SetSliderMaxLenght(double lenght)
         {
             this.sldTime.Maximum = lenght;
+        }
+
+        public void SetSliderPosition(double position)
+        {
+            if (acceptRuntimeSliderUpdate)
+            {
+                sldTime.Value = position;
+            }
         }
     }
 }

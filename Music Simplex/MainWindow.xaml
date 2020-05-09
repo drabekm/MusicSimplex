@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Music_Simplex"
         mc:Ignorable="d"
         Title="Music Simplex" Height="450" Width="800" ResizeMode="CanMinimize">
-    <Grid>
+    <Grid Background="#34495e">
         <Grid.RowDefinitions>
             <RowDefinition Height="324"/>
             <RowDefinition/>

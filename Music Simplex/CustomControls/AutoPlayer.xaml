@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <!--Folders-->
-        <ListBox x:Name="lstbMusicFolders" Grid.Column="4" Margin="10,10,10,0" Grid.Row="1" Grid.RowSpan="3" FontFamily="Verdana" FontSize="16"  />
+        <ListBox x:Name="lstbMusicFolders" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" Grid.Column="4" Margin="10,10,10,0" Grid.Row="1" Grid.RowSpan="3" FontFamily="Verdana" FontSize="16"  />
 
         <!--Album image-->
         <Border Grid.Column="1"  Grid.Row="1" Background="Gray" Grid.RowSpan="1">
@@ -35,14 +35,14 @@
         </Border>
 
         <!--Song info-->
-        <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="Aqua" Orientation="Vertical">
-            <StackPanel Background="Aquamarine" Orientation="Horizontal" Margin="10">
-                <Label Content="Název: " FontFamily="Verdana" FontSize="16"/>
-                <Label x:Name="lblSongName" Content="SongName" FontFamily="Verdana" FontSize="16"/>
+        <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="#34495e" Orientation="Vertical">
+            <StackPanel Background="#2c3e50" Orientation="Horizontal" Margin="10">
+                <Label Content="Název: " Background="#2c3e50" Foreground="WhiteSmoke" FontFamily="Verdana" FontSize="16"/>
+                <Label x:Name="lblSongName" Content="SongName" Background="#2c3e50" Foreground="WhiteSmoke" FontFamily="Verdana" FontSize="16"/>
             </StackPanel>
-            <StackPanel Background="Aquamarine" Orientation="Horizontal" Margin="10">
-                <Label Content="Interpret: " FontFamily="Verdana" FontSize="16"/>
-                <Label x:Name="lblInterpretName" Content="InterpretName" FontFamily="Verdana" FontSize="16"/>
+            <StackPanel Background="#2c3e50" Orientation="Horizontal" Margin="10">
+                <Label Content="Interpret: " Background="#2c3e50" Foreground="WhiteSmoke" FontFamily="Verdana" FontSize="16"/>
+                <Label x:Name="lblInterpretName" Background="#2c3e50" Foreground="WhiteSmoke"  Content="InterpretName" FontFamily="Verdana" FontSize="16"/>
             </StackPanel>
         </StackPanel>
 

@@ -69,10 +69,8 @@ namespace Music_Simplex.CustomControls
         {
             return Math.Round(slider.Value);
         }
-        
 
-
-        public void SetSliderMaxLenght(int lenght)
+        public void SetSliderMaxLenght(double lenght)
         {
             this.sldTime.Maximum = lenght;
         }

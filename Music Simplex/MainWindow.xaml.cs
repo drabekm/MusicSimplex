@@ -22,9 +22,9 @@ namespace Music_Simplex
     
     public partial class MainWindow : Window
     {
-        MediaPlayer player = new MediaPlayer();
+        //MediaPlayer player = new MediaPlayer();
 
-      
+        MusicPlayer musicPlayer = new MusicPlayer();
 
         public MainWindow()
         {
@@ -32,6 +32,10 @@ namespace Music_Simplex
             
 
             AssignHandlersToUIButtonEvents();
+
+            musicPlayer.PlayTestMusic();
+
+            musicPlayer.SongLoaded += MusicPlayerSongLoadedHandler;
 
             /*player.MediaFailed += (o, args) =>
             {
@@ -67,12 +71,12 @@ namespace Music_Simplex
 
         #region "Button click handlers"
 
-        static void MyEventHandler(object sender, EventArgs e)
+     /*   static void MyEventHandler(object sender, EventArgs e)
         {
             var myEventArg = (MyEventArg)e;
             
             MessageBox.Show(myEventArg.Content);
-        }
+        }*/
 
         private void MenuButtonAutoPlayHandler(object sender, EventArgs e)
         {
@@ -92,11 +96,13 @@ namespace Music_Simplex
         private void TimeBarPlayHandler(object sender, EventArgs e)
         {
             MessageBox.Show("Play pressed");
+            musicPlayer.Play();
         }
 
         private void TimeBarPauseHandler(object sender, EventArgs e)
         {
             MessageBox.Show("Pause pressed");
+            musicPlayer.Pause();
         }
 
         private void TimeBarMoveLeftHandler(object sender, EventArgs e)
@@ -112,8 +118,14 @@ namespace Music_Simplex
         private void TimerBarSliderMouseDragHandler(object sender, EventArgs e)
         {
             MessageBox.Show("Slider moved, value: " + this.TimeBar.CurrentTime);
+            musicPlayer.SetSongPosition(this.TimeBar.CurrentTime);
         }
 
         #endregion
+
+        private void MusicPlayerSongLoadedHandler(object sender, EventArgs e)
+        {
+            TimeBar.SetSliderMaxLenght(musicPlayer.GetCurretnSongLenghtSeconds());
+        }
     }
 }

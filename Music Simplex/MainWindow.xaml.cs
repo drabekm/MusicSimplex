@@ -51,9 +51,17 @@ namespace Music_Simplex
 
         private void AssignHandlersToUIButtonEvents()
         {
+            //Menu buttons
             this.MenuButtons.autoPlayerBtnClicked += MenuButtonAutoPlayHandler;
             this.MenuButtons.manualPlayerBtnClicked += MenuButtonManualPlayHandler;
-            this.MenuButtons.aboutBtnClicked += MenuButtonAboutPlayHandler;
+            this.MenuButtons.aboutBtnClicked += MenuButtonAboutHandler;
+
+            //Time bar buttons
+            this.TimeBar.btnPlayClicked += TimeBarPlayHandler;
+            this.TimeBar.btnPauseClicked += TimeBarPauseHandler;
+            this.TimeBar.btnMoveLeftClicked += TimeBarMoveLeftHandler;
+            this.TimeBar.btnMoveRightClicked += TimeBarMoveRightHandler;
+            this.TimeBar.sldTimeMouseDragged += TimerBarSliderMouseDragHandler;
         }
 
 
@@ -76,9 +84,34 @@ namespace Music_Simplex
             MessageBox.Show("Manual pressed");
         }
 
-        private void MenuButtonAboutPlayHandler(object sender, EventArgs e)
+        private void MenuButtonAboutHandler(object sender, EventArgs e)
         {
             MessageBox.Show("About pressed");
+        }
+
+        private void TimeBarPlayHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Play pressed");
+        }
+
+        private void TimeBarPauseHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pause pressed");
+        }
+
+        private void TimeBarMoveLeftHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Move left pressed");
+        }
+
+        private void TimeBarMoveRightHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Move right pressed");
+        }
+
+        private void TimerBarSliderMouseDragHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Slider moved, value: " + this.TimeBar.CurrentTime);
         }
 
         #endregion

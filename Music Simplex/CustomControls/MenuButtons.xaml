@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Music_Simplex.CustomControls.MenuButtons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Music_Simplex"
+             mc:Ignorable="d" Height="auto"
+             Width="auto">
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/> <!--button-->
+            <RowDefinition Height="5"/>  <!--small space-->
+            <RowDefinition Height="*"/> <!--button-->
+            <RowDefinition Height="*"/> <!--big space--> 
+            <RowDefinition Height="*"/> <!--button-->
+            <RowDefinition Height="30"/> <!---->
+        </Grid.RowDefinitions>
+
+        <Button Name="btnAutoPlayer" Grid.Row="1" Content="Auto přehrávač" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnAutoPlayer_Click"/>
+        <Button Name="btnManualPlayer" Grid.Row="3" Content="Manuální výběr" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnManualPlayer_Click"/>
+        <Button Name="btnAbout" Grid.Row="5" Content="O aplikaci" BorderThickness="0" FontFamily="Verdana" FontSize="18" Click="BtnAbout_Click"/>
+
+    </Grid>
+</UserControl>

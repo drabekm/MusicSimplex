@@ -7,19 +7,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Music_Simplex"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+        Title="Music Simplex" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="340"/> 
-            <RowDefinition Height="*"/> <!-- 110 px -->
+            <RowDefinition Height="324"/>
+            <RowDefinition/>
+            <!-- 110 px -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240"/>
-            <ColumnDefinition Width="*"/> <!-- 560 px -->
+            <ColumnDefinition Width="*"/>
+            <!-- 560 px -->
         </Grid.ColumnDefinitions>
-        
+
         <uc:MenuButtons x:Name="MenuButtons" Grid.Row="0" Grid.Column="0"/>
         <uc:AutoPlayer x:Name="AutoPlayer" Grid.Row="0" Grid.Column="1"/>
+        <uc:TimeBar x:Name="TimeBar" Grid.Row="1" Grid.Column="1"/>
     </Grid>
 
 </Window>

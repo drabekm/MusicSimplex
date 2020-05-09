@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomControls\AutoPlayer.xaml.cs">
+      <DependentUpon>AutoPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\MenuButtons.xaml.cs">
       <DependentUpon>MenuButtons.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomControls\AutoPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControls\MenuButtons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

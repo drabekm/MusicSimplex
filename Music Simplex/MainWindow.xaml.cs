@@ -51,15 +51,20 @@ namespace Music_Simplex
             this.TimeBar.btnPauseClicked += TimeBarPauseHandler;
             this.TimeBar.btnMoveLeftClicked += TimeBarMoveLeftHandler;
             this.TimeBar.btnMoveRightClicked += TimeBarMoveRightHandler;
-            this.TimeBar.sldTimeMouseDragged += TimerBarSliderMouseDragHandler;
-            this.TimeBar.timerRequestPositionUpdate += TestUpdateSlider;
+            this.TimeBar.sldTimeMouseDragged += TimeBarSliderMouseDragHandler;
+            this.TimeBar.timebarRequestPositionUpdate += TimebarUpdateSliderHandler;
+            this.TimeBar.timebarVolumeChanged += TimeBarVolumeChangedHandler;
         }
 
-        private void TestUpdateSlider(object sender, EventArgs e)
+        private void TimebarUpdateSliderHandler(object sender, EventArgs e)
         {
             TimeBar.SetSliderPosition(musicPlayer.GetSongPosition());
         }
 
+        private void TimeBarVolumeChangedHandler(object sender, EventArgs e)
+        {
+            musicPlayer.SetVolume(TimeBar.Volume);
+        }
 
         #region "Button click handlers"
 
@@ -100,7 +105,7 @@ namespace Music_Simplex
             
         }
 
-        private void TimerBarSliderMouseDragHandler(object sender, EventArgs e)
+        private void TimeBarSliderMouseDragHandler(object sender, EventArgs e)
         {           
             musicPlayer.SetSongPosition(this.TimeBar.CurrentTime);
         }

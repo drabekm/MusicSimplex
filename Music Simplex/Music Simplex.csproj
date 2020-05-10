@@ -66,6 +66,7 @@
     <Compile Include="CustomControls\TimeBar.xaml.cs">
       <DependentUpon>TimeBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SongsDTO.cs" />
     <Page Include="CustomControls\AutoPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -29,6 +29,20 @@ namespace Music_Simplex
             player.Play();
         }
 
+        public void SetVolume(double volume)
+        {
+            if(volume < 0)
+            {
+                volume = 0;
+            }
+            else if(volume > 1)
+            {
+                volume = 1;
+            }
+
+            player.Volume = volume;
+        }
+
         public double GetCurretnSongLenghtSeconds()
         {
             if(this.player.Source == null)

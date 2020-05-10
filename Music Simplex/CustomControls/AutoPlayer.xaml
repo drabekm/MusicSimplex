@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Music_Simplex.CustomControls"
              mc:Ignorable="d" 
-             
+            
              >
     <!--d:DesignHeight="450" d:DesignWidth="800"-->
     <Grid>
@@ -21,13 +21,13 @@
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="333*"/>
             <ColumnDefinition Width="128*"/>
-            <ColumnDefinition Width="28*"/>
-            <ColumnDefinition Width="271*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="294*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
         <!--Folders-->
-        <ListBox x:Name="lstbMusicFolders" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" Grid.Column="4" Margin="10,10,10,0" Grid.Row="1" Grid.RowSpan="3" FontFamily="Verdana" FontSize="16"  />
+        <ListBox x:Name="lstbMusicFolders" Background="#2c3e50" Foreground="WhiteSmoke" BorderThickness="0" Grid.Column="4" Margin="10,10,10,0" Grid.Row="1" Grid.RowSpan="3" FontFamily="Verdana" FontSize="13"  />
 
         <!--Album image-->
         <Border Grid.Column="1"  Grid.Row="1" Background="Gray" Grid.RowSpan="1">

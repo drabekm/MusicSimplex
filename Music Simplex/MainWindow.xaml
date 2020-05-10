@@ -22,7 +22,7 @@
 
         <uc:MenuButtons x:Name="MenuButtons" Grid.Row="0" Grid.Column="0"/>
         <uc:AutoPlayer x:Name="AutoPlayer" Grid.Row="0" Grid.Column="1"/>
-        <uc:TimeBar x:Name="TimeBar" Grid.Row="1" Grid.Column="1"/>
+        <uc:TimeBar x:Name="TimeBar" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0"/>
     </Grid>
 
 </Window>

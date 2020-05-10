@@ -26,10 +26,12 @@ namespace Music_Simplex.CustomControls
         public event EventHandler btnPlayClicked;
         public event EventHandler btnPauseClicked;
         public event EventHandler sldTimeMouseDragged;
+        public event EventHandler timebarRequestPositionUpdate;
+        public event EventHandler timebarVolumeChanged;
 
-        public event EventHandler timerRequestPositionUpdate;
 
         public double CurrentTime  { get; private set; }
+        public double Volume { get; private set; }
         private bool acceptRuntimeSliderUpdate = true;
 
         System.Windows.Forms.Timer updateSliderTimer = new System.Windows.Forms.Timer();
@@ -55,6 +57,11 @@ namespace Music_Simplex.CustomControls
             updateSliderTimer.Start();
         }
 
+        public void InitializeVolume()
+        {
+            SldVolumeDragCompleted(this, new EventArgs());
+        }
+
         /// <summary>
         /// Creates event that is handled by MainWindow. Which then returns
         /// musicPlayers current songs location. 
@@ -63,7 +70,7 @@ namespace Music_Simplex.CustomControls
         /// <param name="e"></param>
         private void SendTimerRequestPositionUpdate(object sender, EventArgs e)
         {            
-            timerRequestPositionUpdate(this, new EventArgs());
+            timebarRequestPositionUpdate(this, new EventArgs());
         }
 
         #region "Control Events"
@@ -97,6 +104,7 @@ namespace Music_Simplex.CustomControls
         private void SldTimeDragCompleted(object sender, DragCompletedEventArgs e)
         {
             this.CurrentTime = Math.Round(((Slider)sender).Value);
+            lblSongTime.Content = TimeSpan.FromSeconds(CurrentTime).ToString();
             updateSliderTimer.Start();
             acceptRuntimeSliderUpdate = true;
             sldTimeMouseDragged(this, e);
@@ -117,6 +125,7 @@ namespace Music_Simplex.CustomControls
         public void SetSliderMaxLenght(double lenght)
         {
             this.sldTime.Maximum = lenght;
+            this.lblSongEndTime.Content = TimeSpan.FromSeconds(lenght).ToString();
         }
 
         public void SetSliderPosition(double position)
@@ -124,7 +133,14 @@ namespace Music_Simplex.CustomControls
             if (acceptRuntimeSliderUpdate)
             {
                 sldTime.Value = position;
+                lblSongTime.Content = TimeSpan.FromSeconds(CurrentTime).ToString();
             }
+        }
+
+        private void SldVolumeDragCompleted(object sender, EventArgs e)
+        {
+            Volume = sldVolume.Value;
+            timebarVolumeChanged(this, e);
         }
     }
 }

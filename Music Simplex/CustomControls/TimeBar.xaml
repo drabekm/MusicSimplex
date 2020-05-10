@@ -16,14 +16,63 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
-        </Grid.ColumnDefinitions>
-        <Slider Name="sldTime" Grid.RowSpan="2" Thumb.DragStarted="SldTimerDragStarted" Thumb.DragCompleted="SldTimeDragCompleted" TickFrequency="0" ValueChanged="SldTime_ValueChanged"   />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Name="btnMoveLeft" Content="&lt;" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnMoveLeft_Click" BorderThickness="0" />
-            <Button Name="btnPause" Content="Pause" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPause_Click" BorderThickness="0" />
-            <Button Name="btnPlay" Content="Play" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPlay_Click" BorderThickness="0" />
-            <Button Name="btnMoveRight" Content=">" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,0,0" Click="BtnMoveRight_Click" BorderThickness="0" />
+        </Grid.ColumnDefinitions>
+        <Slider Name="sldTime" Grid.RowSpan="2" Thumb.DragStarted="SldTimerDragStarted" Thumb.DragCompleted="SldTimeDragCompleted" TickFrequency="0" ValueChanged="SldTime_ValueChanged" Grid.ColumnSpan="3"   />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Column="1" >
+            <Button Name="btnPause" Content="Pause" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPause_Click" BorderThickness="0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="LightBlue" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#7f8c8d" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Name="btnPlay" Content="Play" Background="#2c3e50" Foreground="WhiteSmoke" Width="50" Margin="0,0,10,0" Click="BtnPlay_Click" BorderThickness="0" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="LightBlue" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#7f8c8d" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+
+        <Slider Name="sldVolume" Thumb.DragCompleted="SldVolumeDragCompleted" Grid.Row="2" VerticalAlignment="Center"  Grid.Column="2" Height="18" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="0.5" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+            <Label Name="lblSongTime"  Content="SongTime" Foreground="WhiteSmoke" />
+            <Label Content="/" Foreground="WhiteSmoke"/>
+            <Label Name="lblSongEndTime" Content="SongEnd" Foreground="WhiteSmoke"/>
         </StackPanel>
     </Grid>
 </UserControl>
